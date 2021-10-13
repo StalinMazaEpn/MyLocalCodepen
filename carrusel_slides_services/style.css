@@ -1,11 +1,31 @@
 :root {
   --circleSize: 300px;
   --title-color: #0b96b2;
+  --textColor: #021216;
+  
   --icons-color: #30bc9a;
+  --icons-color-two: #217277;
   --icons-color-alt: white;
 
   --icons-bg-gradient-one: var(--icons-color);
-  --icons-bg-gradient-two: #a733bb;
+  --icons-bg-gradient-two:  var(--icons-color-two);
+  --item-dot-constant-size: 4.5;
+  --content-size-transform: .85;
+}
+
+.row {
+  flex-wrap: wrap;
+}
+.col-12 {
+  min-width: calc(var(--circleSize) * 1.15);
+}
+
+.circle-slider-wrapper{
+  width: 100%;
+  height: 100%;
+}
+.circle-slider-wrapper.dark{
+  --textDark: white;
 }
 .holderCircle {
   width: var(--circleSize);
@@ -24,31 +44,35 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* border-radius: 50%; */
-  /* border: 1px solid red; */
   z-index: 20;
 }
 .dotCircle .itemDot {
   position: absolute;
   display: block;
-  width: calc(var(--circleSize) / 6);
-  height: calc(var(--circleSize) / 6);
+  width: calc(var(--circleSize) / var(--item-dot-constant-size));
+  height: calc(var(--circleSize) / var(--item-dot-constant-size));
   background: var(--icons-color-alt);
   color: var(--icons-color);
-  border-radius: 20px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  line-height: calc(var(--circleSize) / 5.5);
   z-index: 3;
   cursor: pointer;
   border: 2px solid #e6e6e6;
 }
 
+.dotCircle .itemDot img{
+  height: calc(var(--circleSize) / (var(--item-dot-constant-size) * 1.1));
+  width: calc(var(--circleSize) / (var(--item-dot-constant-size) * 1.1));
+  border-radius: 50%;
+  object-fit: contain;
+  object-position: center;
+}
 .dotCircle .itemDot .forActive {
-  width: calc(var(--circleSize) / 7);
-  height: calc(var(--circleSize) / 7);
+  width: calc(var(--circleSize) / var(--item-dot-constant-size));
+  height: calc(var(--circleSize) / var(--item-dot-constant-size));
   position: absolute;
   top: 0;
   left: 0;
@@ -56,34 +80,11 @@
   bottom: 0;
   display: none;
 }
-/* .dotCircle .itemDot .forActive::after {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border: 3px solid var(--icons-bg-gradient-one);
-  bottom: -31px;
-  left: -14px;
-  filter: blur(1px);
-  position: absolute;
-  border-radius: 100%;
-}
-.dotCircle .itemDot .forActive::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  filter: blur(5px);
-  top: -15px;
-  position: absolute;
-  transform: rotate(-45deg);
-  border: 6px solid var(--icons-bg-gradient-two);
-  right: -39px;
-} */
 .dotCircle .itemDot.active .forActive {
   display: block;
 }
 .round {
   position: absolute;
-  /* background: green; */
   left: 0;
   top: 0;
   width: calc(var(--circleSize));
@@ -93,8 +94,14 @@
   animation: rotation 100s infinite linear;
   -webkit-animation: rotation 100s infinite linear;
 }
-.dotCircle .itemDot:hover,
-.dotCircle .itemDot.active {
+.round.round-solid{
+  border-style: solid;
+}
+.round.round-dashed{
+  border-style: dashed;
+}
+.dotCircle.icon-mode .itemDot:hover,
+.dotCircle.icon-mode .itemDot.active {
   color: var(--icons-color-alt);
   transition: 0.5s;
   background: var(--icons-bg-gradient-one); /* Old browsers */
@@ -122,7 +129,7 @@
 .contentCircle {
   width: 250px;
   border-radius: 100%;
-  color: #222222;
+  color: var(--textColor);
   position: relative;
   top: calc(var(--circleSize) / 3.3);
   left: 50%;
@@ -130,7 +137,7 @@
 }
 .contentCircle .CirItem {
   border-radius: 100%;
-  color: #222222;
+  color: var(--textColor);
   position: absolute;
   text-align: center;
   bottom: 0;
@@ -148,7 +155,7 @@
 .CirItem.active {
   z-index: 1;
   opacity: 1;
-  transform: scale(1);
+  transform: scale(var(--content-size-transform));
   transition: 0.5s;
 }
 
@@ -168,12 +175,6 @@
   }
 }
 @media only screen and (max-width: 500px) {
-  :root {
-    --circleSize: 300px;
-  }
-  .holderCircle {
-    border: 1px solid green;
-  }
 }
 @media only screen and (min-width: 600px) and (max-width: 767px) {
 }
@@ -184,16 +185,15 @@
 @media only screen and (min-width: 1200px) and (max-width: 1499px) {
 }
 .title-box .title {
-  font-weight: 600;
+  font-size: 2em;
   letter-spacing: 2px;
   position: relative;
   z-index: -1;
-}
-.title-box span {
-  text-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1.3rem;
   font-weight: 800;
   color:var(--title-color);
 }
+
 .title-box p,
 .title-box p.content {
   font-size: 1.2em;

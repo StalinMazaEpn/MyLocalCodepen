@@ -80,28 +80,28 @@ body {
   transform: rotateY(0deg) translateZ(288px) translateY(0px);
 }
 .carousel__cell:nth-child(2) {
-  transform: rotateY(40deg) translateZ(288px) translateY(40px);
+  transform: rotateY(40deg) translateZ(288px) translateY(0px);
 }
 .carousel__cell:nth-child(3) {
-  transform: rotateY(80deg) translateZ(288px) translateY(80px);
+  transform: rotateY(80deg) translateZ(288px) translateY(0px);
 }
 .carousel__cell:nth-child(4) {
-  transform: rotateY(120deg) translateZ(288px) translateY(120px);
+  transform: rotateY(120deg) translateZ(288px) translateY(0px);
 }
 .carousel__cell:nth-child(5) {
-  transform: rotateY(160deg) translateZ(288px) translateY(0px)translateY(160px);
+  transform: rotateY(160deg) translateZ(288px) translateY(0px)translateY(0px);
 }
 .carousel__cell:nth-child(6) {
-  transform: rotateY(200deg) translateZ(288px) translateY(160px);
+  transform: rotateY(200deg) translateZ(288px) translateY(0px);
 }
 .carousel__cell:nth-child(7) {
-  transform: rotateY(240deg) translateZ(288px) translateY(120px);
+  transform: rotateY(240deg) translateZ(288px) translateY(0px);
 }
 .carousel__cell:nth-child(8) {
-  transform: rotateY(280deg) translateZ(288px) translateY(80px);
+  transform: rotateY(280deg) translateZ(288px) translateY(0px);
 }
 .carousel__cell:nth-child(9) {
-  transform: rotateY(320deg) translateZ(288px) translateY(40px);
+  transform: rotateY(320deg) translateZ(288px) translateY(0px);
 }
 
 .carousel-options {
